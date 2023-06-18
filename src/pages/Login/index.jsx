@@ -5,14 +5,19 @@ import { useNavigate } from "react-router-dom"
 import { SchemaLogin } from "../../components/schema/schema"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { api } from "../../service/api"
+import { Button } from "../../components/button"
+
+import { StyleTitle_1, StyleText_2, StyleTextErro } from "../../styles/typography"
+import {  Container, HeaderLogin, FormLogin,  DivLogin } from "./style"
+
 
 export function LoginPage() {
     const navigate = useNavigate()
     function handleRegisterClick(){
-        navigate('/register')
+        navigate("/register")
     }
-    function handleHomeClick(){
-        navigate("/home")
+    function handleHomeClick(user) {
+        navigate("/home");
     }
     const {register, handleSubmit, reset, formState:{errors}} = useForm({
         resolver:
@@ -30,6 +35,8 @@ export function LoginPage() {
       
           localStorage.setItem('@TOKEN', token)
           localStorage.setItem('@USERID', user.id)
+          localStorage.setItem('@USER', JSON.stringify(user));
+
 
           handleHomeClick()
 
@@ -45,33 +52,34 @@ export function LoginPage() {
     }
 
     return(
-        <>
-        <header>
-            <img src={Logo} alt="Logo Kenzie Hub cor rosa"/>
-        </header>
-        <main>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <h1>Login</h1>
-                <Input
-                    label="Email"
-                    type="email"
-                    placeholder="Digite seu email"
-                    {...register("email")}
-                />{errors.email ? <p>{errors.email.message}</p> : null }
+        <Container>
+            <HeaderLogin>
+                <img src={Logo} alt="Logo Kenzie Hub cor rosa"/>
+            </HeaderLogin>
+            <main>
+                <FormLogin onSubmit={handleSubmit(onSubmit)}>
+                    <StyleTitle_1> Login </StyleTitle_1>
+                    <Input
+                        label="Email"
+                        type="email"
+                        placeholder="Digite seu email"
+                        {...register("email")}
+                    />{errors.email ? <StyleTextErro>{errors.email.message}</StyleTextErro> : null }
 
-                <Input
-                    label="Senha"
-                    type="password"
-                    placeholder="Digite sua senha" 
-                    {...register("password")}
-                />{errors.password ? <p>{errors.password.message}</p> : null }
+                    <Input
+                        label="Senha"
+                        type="password"
+                        placeholder="Digite sua senha" 
+                        {...register("password")}
+                    />{errors.password ? <StyleTextErro>{errors.password.message}</StyleTextErro> : null }
 
-                <button type="submit">Entrar</button>
-                <p>Ainda não possui uma conta?</p>
-                <button onClick={handleRegisterClick}>Cadastre-se</button>
-             
-            </form>
-        </main>
-        </>
+                    <Button button="entrar" type="submit"> Entrar </Button>
+                    <DivLogin>
+                        <StyleText_2> Ainda não possui uma conta? </StyleText_2>
+                    </DivLogin>
+                    <Button button="cadastrese" onClick={handleRegisterClick}> Cadastre-se </Button>
+                </FormLogin>
+            </main>
+        </Container>
     )
 }

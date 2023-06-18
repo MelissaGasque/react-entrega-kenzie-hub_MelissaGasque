@@ -23,7 +23,7 @@ export const SchemaRegister = z.object({
     password: z
     .string()
     .min(8, "A senha é obrigatória e precisa ter no mínimo 8 caracteres")
-    .regex(/^(?=.*[a-zA-Z])(?=.*\d)(?=.*[^a-zA-Z0-9])/, "A senha precisa ter no mínimo uma letra, um número e um caractere especial"),
+    .regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z0-9])[\s\S]{8,}$/, "A senha precisa ter no mínimo uma letra maiuscula, uma letra minuscula, um número e um caractere especial"),
 
     confirm:
     z.string()

@@ -1,11 +1,12 @@
-import { forwardRef } from 'react';
+import { forwardRef } from 'react'
+import { StyleSelect } from './style'
 
 export const Select = forwardRef(({ children, ...rest }, ref) => {
   return (
     <div>
-      <select {...rest} ref={ref}>
+      <StyleSelect {...rest} ref={ref}>
         {children}
-      </select>
+      </StyleSelect>
        
     </div>
   );
