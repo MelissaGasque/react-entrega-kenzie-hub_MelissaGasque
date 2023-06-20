@@ -2,22 +2,22 @@ import Logo from "../../assets/Logo.png"
 import { useForm } from "react-hook-form"
 import { Input } from "../../components/inputs"
 import { useNavigate } from "react-router-dom"
+import { CustomLink } from "../../components/customLink"
 import { SchemaLogin } from "../../components/schema/schema"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { api } from "../../service/api"
 import { Button } from "../../components/button"
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 import { StyleTitle_1, StyleText_2, StyleTextErro } from "../../styles/typography"
 import {  Container, HeaderLogin, FormLogin,  DivLogin } from "./style"
 
 
-export function LoginPage() {
+export function LoginPage({setUser}) {
     const navigate = useNavigate()
-    function handleRegisterClick(){
-        navigate("/register")
-    }
-    function handleHomeClick(user) {
-        navigate("/home");
+    function handleHomeClick() {
+        navigate("/home")
     }
     const {register, handleSubmit, reset, formState:{errors}} = useForm({
         resolver:
@@ -30,19 +30,17 @@ export function LoginPage() {
           const response = await api.post("/sessions", data)
 
           const responseData = response.data
-          const user = responseData.user
           const token = responseData.token
-      
+         
+            setUser(responseData.user) 
+       
           localStorage.setItem('@TOKEN', token)
-          localStorage.setItem('@USERID', user.id)
-          localStorage.setItem('@USER', JSON.stringify(user));
-
+          localStorage.setItem('@USERID', responseData.user.id)
 
           handleHomeClick()
 
         } catch (error) {
-          console.log(error);
-          //Colocar toastify
+            toast.error("Não foi possível fazer login")
         }
       }
 
@@ -77,9 +75,21 @@ export function LoginPage() {
                     <DivLogin>
                         <StyleText_2> Ainda não possui uma conta? </StyleText_2>
                     </DivLogin>
-                    <Button button="cadastrese" onClick={handleRegisterClick}> Cadastre-se </Button>
+                     <CustomLink link="cadastrese" to="/register">Cadastre-se</CustomLink>
                 </FormLogin>
             </main>
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="colored"
+            />
         </Container>
     )
 }

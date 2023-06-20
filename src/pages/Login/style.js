@@ -1,7 +1,8 @@
 import styled from "styled-components"
 
 export const Container = styled.div`
-   margin-top: 10%;
+   margin: 5% auto;
+   width: 400px;
 `
 
 export const HeaderLogin = styled.header`

@@ -6,12 +6,13 @@ export const HeaderRegister = styled.header`
     align-items: center;
     width: 410px;
     height: 120px;
-
+    margin: 0px auto;
     img{
         width: 122.06px;
         height: 21.21px;
     }
 `
+
 export const FormRegister = styled.form`
    display: flex;
    flex-direction:column;
@@ -20,6 +21,8 @@ export const FormRegister = styled.form`
     height: auto;
     padding: 42px 22px;
     background-color: var(--color-grey-3);
+    margin: 0px auto;
+
 `
 export const FormDivRegister = styled.div`
    display: flex;

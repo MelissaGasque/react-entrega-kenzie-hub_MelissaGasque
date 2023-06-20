@@ -16,9 +16,8 @@ export const StyledInput = styled.input`
 `
 
 export const StyledDivInput = styled.div`
-    height: 90px;
+    height: 100px;
     display: flex;
     flex-direction: column;
     justify-content:space-evenly;
-   
 `

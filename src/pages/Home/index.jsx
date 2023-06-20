@@ -4,15 +4,15 @@ import { useEffect, useState } from "react"
 import { Button } from "../../components/button"
 
 import { StyleTitle_1,StyleTitle_2, StyleText_3 } from "../../styles/typography"
-import { HeaderHome, MainHome, HomeUsuario, HomeMensagem } from "./style"
+import { ContainerHeader, HeaderHome, HomeUsuario, HomeMensagem, ContainerBody} from "./style"
 
-export function HomePage() {
+export function HomePage({usery}) {
   const navigate = useNavigate()
   const [nome, setNome] = useState("")
   const [modulo, setModulo] = useState("")
 
   useEffect(() => {
-    const objeto = JSON.parse(localStorage.getItem("@USER"))
+    const objeto = usery
     const nome = objeto.name
     const modulo = objeto.course_module
 
@@ -21,29 +21,29 @@ export function HomePage() {
   }, [])
 
   const handleLoginClick = () => {
-    navigate("/");
+    navigate("/")
     localStorage.removeItem("@TOKEN")
     localStorage.removeItem("@USERID")
-    localStorage.removeItem("@USER")
-  };
+  }
 
   return (
     <>
       <HeaderHome>
-        <img src={Logo} alt="Logo Kenzie Hub cor rosa" />
-        <Button button="sair" onClick={handleLoginClick}>Sair</Button>
+        <ContainerHeader>
+          <img src={Logo} alt="Logo Kenzie Hub cor rosa" />
+          <Button button="sair" onClick={handleLoginClick}>Sair</Button>
+        </ContainerHeader>
       </HeaderHome>
-      <MainHome>
       <HomeUsuario>
-        <StyleTitle_1>Olá, {nome}</StyleTitle_1>
-        <StyleText_3>{modulo}</StyleText_3>
+        <ContainerBody>
+          <StyleTitle_1>Olá, {nome}</StyleTitle_1>
+          <StyleText_3>{modulo}</StyleText_3> 
+        </ContainerBody>
       </HomeUsuario>
       <HomeMensagem>
         <StyleTitle_1>Que pena! Estamos em desenvolvimento :(</StyleTitle_1>
         <StyleTitle_2>Nossa aplicação está em desenvolvimento, em breve teremos novidades</StyleTitle_2>
-      </HomeMensagem>
-      </MainHome>
-     
+      </HomeMensagem>     
     </>
-  );
+  )
 }

@@ -1,7 +1,7 @@
 import { forwardRef } from "react"
 
 import {StyleText_1} from "../../styles/typography"
-import { StyledInput, StyledDivInput } from "./style";
+import { StyledInput, StyledDivInput } from "./style"
 
 
 export const Input = forwardRef(({ label, type, placeholder, id, ...rest }, ref) => { 

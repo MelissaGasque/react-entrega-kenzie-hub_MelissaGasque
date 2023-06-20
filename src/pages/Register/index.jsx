@@ -7,15 +7,19 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { SchemaRegister } from "../../components/schema/schema"
 import { api } from "../../service/api"
 import { Button } from "../../components/button"
+import React from 'react';
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 import { StyleTitle_1, StyleText_3, StyleTextErro, StyleText_1 } from "../../styles/typography"
 import { HeaderRegister, FormRegister, FormDivRegister } from "./style"
+import { CustomLink } from "../../components/customLink"
 
 export function RegisterPage() {
-    const navigate = useNavigate();
-   function handleLoginClick(){
-        navigate("/");
-      }
+    const navigate = useNavigate()
+    function handleLoginClick(){
+       navigate("/" )
+    }
 
     const {register, handleSubmit, reset, formState:{errors}} = useForm({
         resolver:
@@ -25,16 +29,17 @@ export function RegisterPage() {
      async function sendRegistrationDataToAPI(data){
         try{
             await api.post("/users", data)
-            handleLoginClick()
+            toast.success("Conta criada com sucesso!")
+            setTimeout(() => {
+                handleLoginClick()
+            }, 1500)
         }catch (error){
-            console.log(error)
-            //Aqui será adicionado um toastify
+            toast.error("Ops! Algo deu errado")
         }
       }
      
 
     function onSubmitRegister(data){
-        console.log(data)
         sendRegistrationDataToAPI(data)
         reset()
     }
@@ -42,8 +47,9 @@ export function RegisterPage() {
     return(
         <>
         <HeaderRegister>
-            <img src={Logo} alt="Logo Kenzie Hub cor rosa"/>
-            <Button button="voltar" onClick={handleLoginClick}>Voltar</Button>
+            <img src={Logo} alt="Logo Kenzie Hub cor rosa" />
+            <CustomLink link="voltar" to="/">Voltar</CustomLink>
+           
         </HeaderRegister>
         <FormRegister onSubmit={handleSubmit(onSubmitRegister)}>
             <FormDivRegister>
@@ -99,6 +105,18 @@ export function RegisterPage() {
 
             <Button button="cadastrar" type="submit">Cadastrar</Button>
         </FormRegister>
+        <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="colored"
+        />
         </>
     )
 }
