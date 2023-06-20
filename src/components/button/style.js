@@ -6,40 +6,40 @@ export const StyledButton = styled.button`
     if (button === "entrar") {
       return css`
         font-weight: 500;
-        font-size: 16px;
+        font-size: 1rem;
         width: 100%;
-        height: 48px;
-        padding: 0px 22px;
+        height: 3rem;
+        padding: 0rem 1.375rem;
         background-color:var(--color-color-primary);
         color: var(--color-white);
-        border-radius: 4.06px;
-        border: var(--color-color-primary) 1.22px solid;
-        margin-top: 19px;
+        border-radius: 0.2537rem;
+        border: var(--color-color-primary) 0.0762rem solid;
+        margin-top: 1.1875rem;
       `
     }else if (button === "cadastrar") {
       return css`
         font-weight: 500;
-        font-size: 12.79px;
+        font-size: 0.7994rem;
         width: 100%;
-        height: 48px;
-        padding: 0px 22px;
+        height: 3rem;
+        padding: 0rem 1.375rem;
         background-color:var(--color-color-primary-disable);
         color: var(--color-white);
-        border-radius: 4px;
-        border: var(--color-color-primary-disable) 1.22px solid;
-        margin-top: 2rem;
+        border-radius: 0.25rem;
+        border: var(--color-color-primary-disable) 0.0762rem solid;
+        margin-top: 32px;
       `
     }else if (button === "sair") {
       return css`
         font-weight: 600;
-        font-size: 12px;
-        width: 55.49px;
-        height: 32px;
-        padding: 0px 16px;
+        font-size: 0.75rem;
+        width: 3.4681rem;
+        height: 2rem;
+        padding: 0rem 1rem;
         background-color:var(--color-grey-3);
         color: var(--color-grey-0);
-        border-radius: 4px;
-        border: var(--color-grey-3) 1.22px solid;
+        border-radius: 0.25rem;
+        border: var(--color-grey-3) 0.0762rem solid;
       `
     } 
   }}

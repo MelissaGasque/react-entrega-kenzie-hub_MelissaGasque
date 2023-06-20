@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export const ContainerHeader = styled.div`
     width: 100%;
-    max-width: 770px;
+    max-width: 48.125rem;
     margin: 0 auto; //Coloca no meio 
     display: flex;
     justify-content: space-between;
@@ -11,21 +11,21 @@ export const ContainerHeader = styled.div`
 `
 export const ContainerBody = styled.div`
     width: 100%;
-    max-width: 770px;
+    max-width: 48.125rem;
     margin: 0 auto; //Coloca no meio 
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    @media (max-width: 600px) {
+    @media (max-width: 37.5rem) {
         justify-content: center;
         align-items: flex-start;
         flex-direction: column;
-        padding: 0rem;
+        padding: 0px;
         width: 100%;
 
         h1{
-          margin-bottom: 0.625rem;
+          margin-bottom: 10px;
         }
     }
 `
@@ -33,34 +33,34 @@ export const ContainerBody = styled.div`
 export const HeaderHome = styled.header`
     display: flex;
     align-items: center;
-    height: 72px;
+    height: 4.5rem;
     width: 100%;
  
     img{
-        width: 105.53px;
-        height: 14.63px;
+        width: 6.5956rem;
+        height: 0.9144rem;
     }
 
 `
 export const HomeUsuario = styled.div`
    display: flex;
-    height: 118px;
-    border-top: 1px solid var(--color-grey-3);
-    border-bottom: 1px solid var(--color-grey-3);
+    height: 7.375rem;
+    border-top: 0.0625rem solid var(--color-grey-3);
+    border-bottom: 0.0625rem solid var(--color-grey-3);
 `
 
 export const HomeMensagem = styled.div`
-  max-width: 770px;
-  margin: 0 auto; //Coloca no meio 
+  max-width: 48.125rem;
+  margin: 0 auto;
   display: flex;
   flex-direction: column; 
 
-   margin-top:2.3125rem;
+   margin-top:37px;
    h1{
-        margin-bottom: 1rem;
+        margin-bottom: 16px;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 37.5rem) {
     display: none;
   }
 

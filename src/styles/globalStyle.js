@@ -18,8 +18,5 @@ export const GlobalStyle = createGlobalStyle`
 body{
     font-family: 'Inter', sans-serif;
     background: var(--color-grey-4);
-    /* display: flex;
-    justify-content: center; */
-
 }
 `

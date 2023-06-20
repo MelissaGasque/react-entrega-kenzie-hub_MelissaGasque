@@ -8,13 +8,13 @@ export const StyledLink = styled(Link)`
         return css`
           text-decoration: none;
           font-weight: 600;
-          font-size: 12px;
-          width: 67.49px;
-          height: 40.11px;
+          font-size: 0.75rem;
+          width: 4.2181rem;
+          height: 2.5069rem;
           background-color: var(--color-grey-3);
           color: var(--color-grey-0);
-          border-radius: 4px;
-          border: var(--color-grey-3) 1.22px solid;
+          border-radius: 0.25rem;
+          border: var(--color-grey-3) 0.0762rem solid;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -23,12 +23,12 @@ export const StyledLink = styled(Link)`
         return css`
           text-decoration: none;
           font-weight: 500;
-          font-size: 16px;
-          height: 48px;
+          font-size: 1rem;
+          height: 3rem;
           background-color:var(--color-grey-1);
           color: var(--color-grey-0);
-          border-radius: 4.06px;
-          border: var(--color-grey-1) 1.22px solid;
+          border-radius: 0.2537rem;
+          border: var(--color-grey-1) 0.0762rem solid;
           display: flex;
           justify-content: center;
           align-items: center;
