@@ -1,17 +1,21 @@
 import { Route, Routes } from "react-router-dom"
 import { HomePage } from "../pages/Home"
 import { LoginPage } from "../pages/Login"
-import {RegisterPage} from "../pages/Register"
-import { useState } from "react"
+import { RegisterPage } from "../pages/Register"
+import { PublicRoutes } from "./PublicRoutes"
+import { ProtectedRoutes } from "./ProtectedRoutes"
+// import { TechContext } from "../components/providers/TechContext"
 
-export function RoutesMain(){
-    const [ usery, setUser ] = useState(null)
-    
+export function RoutesMain(){    
     return(
         <Routes>
-            <Route path="/home" element={<HomePage usery={usery}/>}/>
-            <Route path="/" element={<LoginPage  setUser={setUser}  usery={usery}/>}/>
-            <Route path="/register" element={<RegisterPage/>}/>
+            <Route element={<ProtectedRoutes />}> 
+            <Route path="/home" element={<HomePage />} />
+            </Route>
+            <Route element={<PublicRoutes />}>
+                <Route path="/" element={<LoginPage />}/>  
+                <Route path="/register" element={<RegisterPage/>}/>
+            </Route>
         </Routes>
     )
 }

@@ -1,49 +1,48 @@
-import { useNavigate } from "react-router-dom"
 import Logo from "../../assets/Logo.png"
-import { useEffect, useState } from "react"
+import { useContext, useState} from "react"
 import { Button } from "../../components/button"
-
+import adicionar from "../../assets/+.png"
 import { StyleTitle_1,StyleTitle_2, StyleText_3 } from "../../styles/typography"
 import { ContainerHeader, HeaderHome, HomeUsuario, HomeMensagem, ContainerBody} from "./style"
+import { UserContext } from "../../components/providers/UserContext"
+import { ModalCadastro } from "../../components/modals/modalCadastro"
 
-export function HomePage({usery}) {
-  const navigate = useNavigate()
-  const [nome, setNome] = useState("")
-  const [modulo, setModulo] = useState("")
 
-  useEffect(() => {
-    const objeto = usery
-    const nome = objeto.name
-    const modulo = objeto.course_module
+export function HomePage() {
+  const {usery, LogOut} = useContext(UserContext)
+  const [modalIsOpen, setIsOpen] = useState(false)
+  // console.log(modalIsOpen)
 
-    setNome(nome)
-    setModulo(modulo)
-  }, [])
-
-  const handleLoginClick = () => {
-    navigate("/")
-    localStorage.removeItem("@TOKEN")
-    localStorage.removeItem("@USERID")
-  }
+  function openModal() {
+    setIsOpen(true)
+}
 
   return (
     <>
       <HeaderHome>
         <ContainerHeader>
           <img src={Logo} alt="Logo Kenzie Hub cor rosa" />
-          <Button button="sair" onClick={handleLoginClick}>Sair</Button>
+          <Button button="sair" onClick={LogOut}>Sair</Button>
         </ContainerHeader>
       </HeaderHome>
       <HomeUsuario>
         <ContainerBody>
-          <StyleTitle_1>Olá, {nome}</StyleTitle_1>
-          <StyleText_3>{modulo}</StyleText_3> 
+          <StyleTitle_1>Olá, {usery?.name}</StyleTitle_1>
+          <StyleText_3>{usery?.course_module}</StyleText_3> 
         </ContainerBody>
       </HomeUsuario>
       <HomeMensagem>
-        <StyleTitle_1>Que pena! Estamos em desenvolvimento :(</StyleTitle_1>
-        <StyleTitle_2>Nossa aplicação está em desenvolvimento, em breve teremos novidades</StyleTitle_2>
-      </HomeMensagem>     
+        <div>
+        <h3>Tecnologias</h3>
+          <Button  onClick={openModal}>
+            <img src={adicionar} alt="Símbolo de mais (+) cor branca"/>
+          </Button>
+        </div>
+        <section>
+          <p>Verificando</p>
+        </section>
+      </HomeMensagem>   
+      <ModalCadastro modalIsOpen={modalIsOpen} setIsOpen={setIsOpen} /> 
     </>
   )
 }

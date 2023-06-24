@@ -1,51 +1,29 @@
 import Logo from "../../assets/Logo.png"
 import { useForm } from "react-hook-form"
 import { Input } from "../../components/inputs"
-import { useNavigate } from "react-router-dom"
 import { CustomLink } from "../../components/customLink"
 import { SchemaLogin } from "../../components/schema/schema"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { api } from "../../service/api"
 import { Button } from "../../components/button"
-import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { useContext } from "react"
+import { UserContext } from "../../components/providers/UserContext"
 
 import { StyleTitle_1, StyleText_2, StyleTextErro } from "../../styles/typography"
 import {  Container, HeaderLogin, FormLogin,  DivLogin } from "./style"
 
 
-export function LoginPage({setUser}) {
-    const navigate = useNavigate()
-    function handleHomeClick() {
-        navigate("/home")
-    }
+export function LoginPage() {
+
     const {register, handleSubmit, reset, formState:{errors}} = useForm({
         resolver:
         zodResolver(SchemaLogin)
     })
     
-    async function loginAPI(data) {
-       
-        try {
-          const response = await api.post("/sessions", data)
+    const { loginAPI  } = useContext(UserContext)
 
-          const responseData = response.data
-          const token = responseData.token
-         
-            setUser(responseData.user) 
-       
-          localStorage.setItem('@TOKEN', token)
-          localStorage.setItem('@USERID', responseData.user.id)
-
-          handleHomeClick()
-
-        } catch (error) {
-            toast.error("Não foi possível fazer login")
-        }
-      }
-
-   function onSubmit(data){
-        loginAPI(data)
+   function onSubmit(formData){
+        loginAPI(formData)
         reset()
     }
 
@@ -78,18 +56,6 @@ export function LoginPage({setUser}) {
                      <CustomLink link="cadastrese" to="/register">Cadastre-se</CustomLink>
                 </FormLogin>
             </main>
-            <ToastContainer
-                position="top-right"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="colored"
-            />
         </Container>
     )
 }
