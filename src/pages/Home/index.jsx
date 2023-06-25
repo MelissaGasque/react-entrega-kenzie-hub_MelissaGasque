@@ -17,7 +17,7 @@ export function HomePage() {
   const [selectedTechTitle, setSelectedTechTitle] = useState("")
   const [selectedTechId, setSelectedTechId] = useState(null)
   
-  // const { techList } = useContext(UserContext)
+  const { techList } = useContext(UserContext)
   //Será adicionado no TechContext  
 
   function openModal() {
@@ -52,6 +52,7 @@ export function HomePage() {
         </Button>
       </HomeTecnologia>
       <HomeListUl>
+      {/*  techList => Ao dar F5 some os dados da api */}
         {usery.techs.map((tech) => (
           <React.Fragment key={tech.id}>
             <HomeListLi onClick={() => handleItemClick(tech.id, tech.title)}>

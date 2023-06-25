@@ -18,8 +18,6 @@ export function ModalCadastro({modalIsOpen, setIsOpen}){
         zodResolver(SchemaModalCreate)
     })
 
-    // formState:{errors}
-
     function closeModal() {
         setIsOpen(false);
     }

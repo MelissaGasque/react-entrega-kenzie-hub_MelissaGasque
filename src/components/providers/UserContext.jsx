@@ -8,7 +8,6 @@ export const UserContext = createContext({})
 export function UserProvider({children}){
   const [usery, setUser] = useState(null)
   const [loading, setLoading] = useState(false)
-  // console.log(usery)
 
   const navigate = useNavigate()
 
@@ -74,8 +73,6 @@ export function UserProvider({children}){
   //Teste TECHCONTEXT
   const [ techList, setTechList ] = useState([])
   
-  // console.log(techList)
-
   //criar tecnologias
   async function CreateTechnologies(formData){
     const token = localStorage.getItem("@TOKEN")
@@ -85,12 +82,10 @@ export function UserProvider({children}){
           headers:{
             Authorization:`Bearer ${token}`
           }
-        })
-        // console.log(data)      
+        })  
         setTechList((techList) => [...techList, data])
         toast.success("Tecnologia adicionada!")
     }catch (error){
-        // console.log(error)
         toast.error("Tecnologia já adicionada")
     }
   }
@@ -107,8 +102,7 @@ export function UserProvider({children}){
         setTechList((techList) => [...techList, data])
         toast.success("Tecnologia editada!")
     }catch (error){
-        // console.log(error)
-        toast.error("Erro ao editar! É necessários um status maior")
+        toast.error("Erro ao editar! É necessário selecionar um novo o status")
     }
   }
    
