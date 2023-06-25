@@ -1,6 +1,4 @@
 import React, {useContext} from "react"
-// import ReactDOM from "react-dom"
-// import Modal from "react-modal"
 import { Input } from "../../inputs/index"
 import { Select } from "../../Select/index"
 import { useForm } from "react-hook-form"
@@ -8,12 +6,18 @@ import { Button } from "../../button"
 // import { TechContext } from "../../providers/TechContext"
 import { UserContext } from "../../providers/UserContext"
 import { StyledBackdrop, StyledModal, StyledHeader, StyledForm } from "./style"
-import { StyleText_1 } from "../../../styles/typography"
+import { StyleTextErro, StyleText_1 } from "../../../styles/typography"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { SchemaModalCreate } from "../../schema/schema"
 
 
 
 export function ModalCadastro({modalIsOpen, setIsOpen}){
-    const {register, handleSubmit, reset} = useForm()
+    const {register, handleSubmit, reset, formState:{errors}} = useForm({
+        resolver:
+        zodResolver(SchemaModalCreate)
+    })
+
     // formState:{errors}
 
     function closeModal() {
@@ -46,16 +50,14 @@ export function ModalCadastro({modalIsOpen, setIsOpen}){
                         type="text"
                         placeholder="Adicione uma tecnologia" 
                         {...register("title")}
-                    />
-                    {/* {errors.title ? <StyleTextErro>{errors.title.message}</StyleTextErro> : null} */}
+                    /> {errors.title ? <StyleTextErro>{errors.title.message}</StyleTextErro> : null}
                     <StyleText_1>Selecionar Status</StyleText_1>
                     <Select {...register("status")}>
                         <option value="">Selecione uma opção</option>
                         <option value="Iniciante">Iniciante</option>
                         <option value="Intermediário">Intermediário</option>
                         <option value="Avançado">Avançado</option>
-                    </Select>
-                    {/* {errors.status? <StyleTextErro>{errors.status.message}</StyleTextErro> : null} */}
+                    </Select> {errors.status? <StyleTextErro>{errors.status.message}</StyleTextErro> : null}
                     <Button button="entrar" type="submit">Cadastrar Tecnologia</Button>
                 </StyledForm>
             </StyledModal>

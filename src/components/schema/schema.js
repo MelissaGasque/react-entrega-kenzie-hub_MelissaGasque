@@ -45,3 +45,12 @@ export const SchemaRegister = z.object({
     path:["confirm"],
 });
 
+export const SchemaModalCreate = z.object({
+    title: z.string().nonempty("Adicionar a tecnologia é obrigatório"),
+    
+    status: z.string().nonempty("Escolher o status é obrigatório")
+})
+
+export const SchemaModalEditDelet = z.object({
+    status: z.string().nonempty("Escolher o status é obrigatório"),
+})

@@ -1,21 +1,24 @@
 import React, {useContext} from "react"
-// import { Input } from "../../inputs/index"
 import { Select } from "../../Select/index"
 import { useForm } from "react-hook-form"
 import { Button } from "../../button"
 // import { TechContext } from "../../providers/TechContext"
-import { StyleText_1 } from "../../../styles/typography"
-import { StyledBackdropEditDelet, StyledFormEditDelet, StyledHeaderEditDelet, StyledModalEditDelet } from "./style"
+import { StyleTextErro, StyleText_1, StyleTitle_4 } from "../../../styles/typography"
+import { StyledBackdropEditDelet, StyledFormEditDelet, StyledHeaderEditDelet, StyledModalEditDelet, StyledFakeInput, StyleDivButton } from "./style"
 import {UserContext} from "../../providers/UserContext"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { SchemaModalEditDelet } from "../../schema/schema"
 
 
 
 export function ModalEditDelet({modalEditDeletIsOpen, setModalEditDeletIsOpen, selectedTechTitle, selectedTechId}){
-    const {register, handleSubmit, reset} = useForm()
-    // formState:{errors}
-    console.log(selectedTechId)
+    const {register, handleSubmit, reset, formState:{errors}} = useForm({
+        resolver:
+        zodResolver(SchemaModalEditDelet)
+    })
+
     function closeModal() {
-        setModalEditDeletIsOpen(false);
+        setModalEditDeletIsOpen(false)
     }
 
     const {EditTechnologies, DeleteTechnologies } = useContext(UserContext)
@@ -24,15 +27,15 @@ export function ModalEditDelet({modalEditDeletIsOpen, setModalEditDeletIsOpen, s
     function handleEdit(formData){
         console.log(formData)
         console.log(selectedTechId)
-        EditTechnologies((formData, selectedTechId))
-        console.log("Editar tecnologia")
+        EditTechnologies(formData, selectedTechId)
         reset()
+        setModalEditDeletIsOpen(false)
     }
 
-    function handleDelete(selectedTechId) {
+    function handleDelete() {
         DeleteTechnologies(selectedTechId)
-        console.log("Excluir tecnologia");
-      }
+        setModalEditDeletIsOpen(false)
+    }
 
     if(!modalEditDeletIsOpen){
         return null
@@ -46,22 +49,21 @@ export function ModalEditDelet({modalEditDeletIsOpen, setModalEditDeletIsOpen, s
                     <Button button="x" onClick={closeModal}>X</Button>
                 </StyledHeaderEditDelet>
                 <StyledFormEditDelet onSubmit={handleSubmit(handleEdit)}>
-                    <p>Nome</p>
-                    <div>
-                        <h1>{selectedTechTitle}</h1>
-                    </div>
+                    <StyleText_1>Nome</StyleText_1>
+                    <StyledFakeInput>
+                        <StyleTitle_4>{selectedTechTitle}</StyleTitle_4>
+                    </StyledFakeInput>
                     <StyleText_1> Status</StyleText_1>
                     <Select {...register("status")}>
                         <option value="">Selecione uma opção</option>
                         <option value="Iniciante">Iniciante</option>
                         <option value="Intermediário">Intermediário</option>
                         <option value="Avançado">Avançado</option>
-                    </Select>
-                    {/* {errors.status? <StyleTextErro>{errors.status.message}</StyleTextErro> : null} */}
-                    <div>
-                    <Button  type="submit">Salvar Alterações</Button>
-                    <Button  type="button" onClick={handleDelete}>Excluir</Button>
-                    </div>
+                    </Select>{errors.status? <StyleTextErro>{errors.status.message}</StyleTextErro> : null}
+                    <StyleDivButton>
+                        <Button button="salvar"  type="submit">Salvar Alterações</Button>
+                        <Button button="excluir"  type="button" onClick={handleDelete}>Excluir</Button>
+                    </StyleDivButton>
                 </StyledFormEditDelet>
             </StyledModalEditDelet>
         </StyledBackdropEditDelet>

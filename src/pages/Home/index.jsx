@@ -1,3 +1,4 @@
+import React from "react"
 import Logo from "../../assets/Logo.png"
 import { useContext, useState} from "react"
 import { Button } from "../../components/button"
@@ -14,18 +15,16 @@ export function HomePage() {
   const [modalIsOpen, setIsOpen] = useState(false)
   const [modalEditDeletIsOpen, setModalEditDeletIsOpen] = useState(false)
   const [selectedTechTitle, setSelectedTechTitle] = useState("")
-  const [selectedTechId, setSelectedTechId] = useState("")
-  const { techList } = useContext(UserContext)
+  const [selectedTechId, setSelectedTechId] = useState(null)
+  
+  // const { techList } = useContext(UserContext)
   //Será adicionado no TechContext  
-  // console.log(techList)
+
   function openModal() {
     setIsOpen(true)
-    console.log(usery)
   }
 
   function handleItemClick(id, title){
-    alert("funcionou")
-    // console.log(id)
     setSelectedTechId(id)
     setSelectedTechTitle(title)
     setModalEditDeletIsOpen(true)
@@ -46,18 +45,20 @@ export function HomePage() {
         </ContainerBody>
       </HomeUsuario>
       <HomeMensagem>
-        <HomeTecnologia>
-        <StyleTitle_3>Tecnologias</StyleTitle_3>
-          <Button button="+"  onClick={openModal}>
-            <img src={adicionar} alt="Símbolo de mais (+) cor branca"/>
-          </Button>
-        </HomeTecnologia>
-        <HomeListUl>
+      <HomeTecnologia>
+      <StyleTitle_3>Tecnologias</StyleTitle_3>
+        <Button button="+"  onClick={openModal}>
+          <img src={adicionar} alt="Símbolo de mais (+) cor branca"/>
+        </Button>
+      </HomeTecnologia>
+      <HomeListUl>
         {usery.techs.map((tech) => (
-          <HomeListLi key={tech.id} onClick={() => handleItemClick(tech.id, tech.title)}>
-            <p>{tech.title}</p>
-            <p>{tech.status}</p>
-          </HomeListLi>
+          <React.Fragment key={tech.id}>
+            <HomeListLi onClick={() => handleItemClick(tech.id, tech.title)}>
+              <p>{tech.title}</p>
+              <p>{tech.status}</p>
+            </HomeListLi>
+          </React.Fragment>
         ))}
       </HomeListUl>
       </HomeMensagem>   

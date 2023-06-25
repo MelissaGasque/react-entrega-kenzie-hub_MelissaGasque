@@ -8,7 +8,7 @@ export const UserContext = createContext({})
 export function UserProvider({children}){
   const [usery, setUser] = useState(null)
   const [loading, setLoading] = useState(false)
-  console.log(usery)
+  // console.log(usery)
 
   const navigate = useNavigate()
 
@@ -73,6 +73,7 @@ export function UserProvider({children}){
 
   //Teste TECHCONTEXT
   const [ techList, setTechList ] = useState([])
+  
   // console.log(techList)
 
   //criar tecnologias
@@ -84,21 +85,21 @@ export function UserProvider({children}){
           headers:{
             Authorization:`Bearer ${token}`
           }
-        })      
+        })
+        // console.log(data)      
         setTechList((techList) => [...techList, data])
         toast.success("Tecnologia adicionada!")
     }catch (error){
-        console.log(error)
+        // console.log(error)
         toast.error("Tecnologia já adicionada")
     }
   }
+
   //editar
   async function EditTechnologies(formData, tech_id){
     const token = localStorage.getItem("@TOKEN")
-    //pegar o ID 
     try{
         const { data } = await api.put(`/users/techs/${tech_id}`, formData, {
-          // Verificar o data
           headers:{
             Authorization:`Bearer ${token}`
           }
@@ -106,31 +107,31 @@ export function UserProvider({children}){
         setTechList((techList) => [...techList, data])
         toast.success("Tecnologia editada!")
     }catch (error){
-        console.log(error)
-        toast.error("Erro ao editar")
+        // console.log(error)
+        toast.error("Erro ao editar! É necessários um status maior")
     }
   }
+   
   //deletar
   async function DeleteTechnologies(tech_id){
     const token = localStorage.getItem("@TOKEN")
-    //pegar o id 
     try{
-        const { data } = await api.delete(`/users/techs/${tech_id}`, {
-          // Verificar o data
+    //const {data}
+          await api.delete(`/users/techs/${tech_id}`, {
           headers:{
             Authorization:`Bearer ${token}`
           }
-        })   
+        }) 
         setTechList((techList) => techList.filter(techID => tech_id !== techID.id))
         toast.success("Tecnologia deletada!")
     }catch (error){
-        console.log(error)
+        // console.log(error)
         toast.error("Erro ao deletar")
     }
   }
 
   return(
-      <UserContext.Provider value={{ usery, setUser, loginAPI, LogOut, RegistrationAPI, loading, CreateTechnologies, techList, EditTechnologies, DeleteTechnologies }}>
+      <UserContext.Provider value={{ usery, setUser, loginAPI, LogOut, RegistrationAPI, loading, CreateTechnologies, techList, setTechList, EditTechnologies, DeleteTechnologies }}>
           {children}
       </UserContext.Provider>
   )

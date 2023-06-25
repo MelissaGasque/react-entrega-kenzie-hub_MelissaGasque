@@ -15,6 +15,10 @@ export const StyledButton = styled.button`
         border-radius: 0.2537rem;
         border: var(--color-color-primary) 0.0762rem solid;
         margin-top: 1.1875rem;
+
+        &:hover {
+          background-color: var(--color-color-primary-50);
+        }
       `
     }else if (button === "cadastrar") {
       return css`
@@ -28,6 +32,10 @@ export const StyledButton = styled.button`
         border-radius: 0.25rem;
         border: var(--color-color-primary-disable) 0.0762rem solid;
         margin-top: 32px;
+
+        &:hover {
+          background-color: var(--color-negative);
+        }
       `
     }else if (button === "sair") {
       return css`
@@ -40,6 +48,10 @@ export const StyledButton = styled.button`
         color: var(--color-grey-0);
         border-radius: 0.25rem;
         border: var(--color-grey-3) 0.0762rem solid;
+
+        &:hover {
+          background-color: var(--color-grey-2);
+        }
       `
     } else if (button === "x") {
       return css`
@@ -56,6 +68,41 @@ export const StyledButton = styled.button`
         border-radius: 0.25rem;
         border: 1px solid var(--color-grey-3);
         background-color:var(--color-grey-3);
+
+        &:hover {
+          background-color: var(--color-grey-2);
+        }
+      `
+    } else if (button === "salvar") {
+      return css`
+        width: 62%;
+        height: 3rem;
+        border-radius: 0.25rem;
+        border: 0.0762rem solid var(--color-color-primary-disable);
+        background-color:var(--color-color-primary-disable);
+        font-size: 16px;;
+        font-weight: 500;
+        color: var(--color-white);
+
+        &:hover {
+          background-color: var(--color-negative);
+        }
+      `
+    } else if (button === "excluir") {
+      return css`
+        width: 30%;
+        height: 3rem;
+        border-radius: 0.25rem;
+        border: 0.0762rem solid var(--color-grey-1);
+        background-color:var(--color-grey-1);
+        font-size: 16px;;
+        font-weight: 500;
+        color: var(--color-white);
+
+        &:hover{
+          background-color: var(--color-grey-2);
+          border: 0.0762rem solid var(--color-grey-2);
+        }
       `
     } 
   }}

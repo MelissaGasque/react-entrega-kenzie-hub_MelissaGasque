@@ -8,11 +8,17 @@ export const StyledInput = styled.input`
 
     background-color: var(--color-grey-2);
     color: var(--color-grey-0);
-    border: 0.0762rem solid var(--color-grey-0);
+    border: 0.0762rem solid var(--color-grey-2);
     border-radius: 0.2006rem;
 
     font-weight: 400;
     font-size: 1.015rem;
+
+    &:hover {
+        color: var(--color-grey-0);
+        border: 0.0762rem solid var(--color-grey-0);
+    }
+
 `
 
 export const StyledDivInput = styled.div`

@@ -10,7 +10,12 @@ export const StyleSelect = styled.select`
     border: solid 0.0606rem var(--color-grey-2);
 
     font-weight: 400;
-    font-size: 0.8119rem;
+    font-size: 1rem;
     font-family: 'Inter', sans-serif;
     margin-top: 8px;
+
+    &:hover {
+        color: var(--color-grey-0);
+        border: 0.0762rem solid var(--color-grey-0);
+    }
 `

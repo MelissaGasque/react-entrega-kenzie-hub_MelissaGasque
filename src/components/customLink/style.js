@@ -18,6 +18,10 @@ export const StyledLink = styled(Link)`
           display: flex;
           justify-content: center;
           align-items: center;
+
+          &:hover {
+          background-color: var(--color-grey-2);
+          }
         `
       }else if(link === "cadastrese"){
         return css`
@@ -32,6 +36,10 @@ export const StyledLink = styled(Link)`
           display: flex;
           justify-content: center;
           align-items: center;
+
+          &:hover {
+          background-color: var(--color-grey-2);
+          }
       `
       }
 

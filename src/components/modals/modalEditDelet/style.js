@@ -36,6 +36,21 @@ export const StyledFormEditDelet = styled.form`
     flex-direction: column;
     justify-content: space-around;
     background-color: var(--color-grey-3);
-    height: 292px;
+    height: 18.25rem;
     padding: 0.75rem 1.25rem 0.75rem 1.25rem;
+`
+export const StyledFakeInput = styled.div`
+    display: flex;
+    align-items: center;
+    width: 18.75rem;
+    height: 3rem;
+    padding: 0rem 1.0152rem 0rem 1.0152rem;
+    border-radius: 0.25rem;
+    border: 0.0761rem;
+    background-color: var(--color-grey-2);
+`
+export const StyleDivButton = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 `

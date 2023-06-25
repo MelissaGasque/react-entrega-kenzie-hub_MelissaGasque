@@ -13,6 +13,10 @@ export const styleBase_400_12 = css`
     font-weight: 400;
     font-size: 0.75rem;
 `
+export const styleBase_400_16 = css`
+    font-weight: 400;
+    font-size: 1rem;
+`
 export const styleBase_600_12 = css`
     font-weight: 600;
     font-size: 0.75rem;
@@ -45,8 +49,7 @@ export const StyleText_3 = styled.p`
 `
 export const StyleTitle_2 = styled.h2`
     ${StyleBase};
-    font-weight: 400;
-    font-size: 1rem;
+    ${styleBase_400_16 }
     line-height: 1.5rem;
     color: var( --color-white);
 `
@@ -61,4 +64,11 @@ export const StyleTitle_3 = styled.h3`
     font-size: 1rem;
     line-height: 1.125rem;
     color: var( --color-grey-0);
+`
+
+export const StyleTitle_4 = styled.h2`
+    ${StyleBase};
+    ${styleBase_400_16 }
+    line-height: 1.5869rem;
+    color: var( --color-grey-1);
 `

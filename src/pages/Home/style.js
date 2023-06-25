@@ -40,7 +40,7 @@ export const HeaderHome = styled.header`
         width: 6.5956rem;
         height: 0.9144rem;
     }
-
+    
 `
 export const HomeUsuario = styled.div`
    display: flex;
@@ -79,6 +79,7 @@ export const HomeListUl= styled.ul`
   background-color: var(--color-grey-3);
   padding: 1.5rem 1.5rem;
   overflow-y: auto;
+  overflow-x: hidden;
 `
 
 export const HomeListLi = styled.li`
