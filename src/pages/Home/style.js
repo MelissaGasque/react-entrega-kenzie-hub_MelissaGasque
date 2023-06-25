@@ -65,3 +65,36 @@ export const HomeMensagem = styled.div`
   }
 
 `
+export const HomeTecnologia = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`
+
+export const HomeListUl= styled.ul`
+  display: flex;
+  flex-direction: column;
+  height: 26rem;
+  margin-top: 1rem;
+  background-color: var(--color-grey-3);
+  padding: 1.5rem 1.5rem;
+  overflow-y: auto;
+`
+
+export const HomeListLi = styled.li`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-grey-4);
+  width: 96%;
+  height: 3.0625rem;
+  padding: 0 1rem;
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
+   cursor: pointer;
+
+   &:hover {
+    background-color: var(--color-grey-2);
+  }
+`

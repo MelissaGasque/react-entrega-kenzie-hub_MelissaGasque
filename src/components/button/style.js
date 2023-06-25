@@ -41,6 +41,22 @@ export const StyledButton = styled.button`
         border-radius: 0.25rem;
         border: var(--color-grey-3) 0.0762rem solid;
       `
+    } else if (button === "x") {
+      return css`
+        font-weight: 600;
+        font-size: 1rem;
+        background-color:var(--color-grey-2);
+        color: var(--color-grey-1);
+        border: none;
+      `
+    } else if (button === "+") {
+      return css`
+        width: 2.0306rem;
+        height: 2rem;
+        border-radius: 0.25rem;
+        border: 1px solid var(--color-grey-3);
+        background-color:var(--color-grey-3);
+      `
     } 
   }}
 `

@@ -4,34 +4,63 @@ export const TechContext = createContext({})
 
 export function TechContextProvider({children}){
 
-   const [ TechList, setTechList ] = useState([])
-   
-   async function CreateTechnologies(formData){
-     const token = localStorage.getItem("@TOKEN")
-     try{
-         const { data }= await api.post("/users/techs", formData, {
-           headers:{
-             Authorization:`Bearer ${token}`
-           }
-         })
-         console.log(data)
-     
-        setTechList(data)
-        console.log(TechList)
-     }catch (error){
-         console.log(error)
-         console.log("Tecnologia já adicionada")
-     }
- }
-    
-    //Cadastro de Tecnologias
-        //POST /users/techs
-        //Adicionar o resultado em setTechList
-    //Deleção de tecnologias
-        //DELETE /users/techs/:tech_id
-        //Pega o id
-    //Listagem de tecnologias em tempo real(atualização automatica ao estado)
-        // TechList
+    const [ techList, setTechList ] = useState([])
+    // console.log(techList)
+  
+    //criar tecnologias
+    async function CreateTechnologies(formData){
+      const token = localStorage.getItem("@TOKEN")
+      try{
+          const { data } = await api.post("/users/techs", formData, {
+          
+            headers:{
+              Authorization:`Bearer ${token}`
+            }
+          })      
+          setTechList((techList) => [...techList, data])
+          toast.success("Tecnologia adicionada!")
+      }catch (error){
+          console.log(error)
+          toast.error("Tecnologia já adicionada")
+      }
+    }
+    //editar
+    async function EditTechnologies(formData, tech_id){
+      const token = localStorage.getItem("@TOKEN")
+      //pegar o ID 
+      try{
+          const { data } = await api.put(`/users/techs/${tech_id}`, formData, {
+            // Verificar o data
+            headers:{
+              Authorization:`Bearer ${token}`
+            }
+          })      
+          setTechList((techList) => [...techList, data])
+          toast.success("Tecnologia editada!")
+      }catch (error){
+          console.log(error)
+          toast.error("Erro ao editar")
+      }
+    }
+    //deletar
+    async function DeleteTechnologies(tech_id){
+      const token = localStorage.getItem("@TOKEN")
+      //pegar o id 
+      try{
+          const { data } = await api.delete(`/users/techs/${tech_id}`, {
+            // Verificar o data
+            headers:{
+              Authorization:`Bearer ${token}`
+            }
+          })      
+          setTechList((techList) => techList.filter())
+          setNewsList((newsList) => newsList.filter(techID => tech_id !== techID.id));
+          toast.success("Tecnologia deletada!")
+      }catch (error){
+          console.log(error)
+          toast.error("Erro ao deletar")
+      }
+    }
      
     return(
         <TechContext.Provider value={{ CreateTechnologies }}>

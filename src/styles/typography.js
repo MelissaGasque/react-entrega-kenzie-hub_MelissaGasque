@@ -24,6 +24,7 @@ export const StyleTitle_1 = styled.h1`
     line-height: 1.75rem;
     color: var(--color-grey-0);
 `
+
 export const StyleText_1 = styled.p`
     ${StyleBase};
     ${styleBase_400_12};
@@ -53,4 +54,11 @@ export const StyleTitle_2 = styled.h2`
 export const StyleTextErro = styled.p`
     color: var(--color-negative);
     font-size: 0.625rem;
+`
+export const StyleTitle_3 = styled.h3`
+    ${StyleBase};
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.125rem;
+    color: var( --color-grey-0);
 `

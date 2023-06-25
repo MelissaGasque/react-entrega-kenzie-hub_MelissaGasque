@@ -18,6 +18,6 @@ export const GlobalStyle = createGlobalStyle`
 body{
     font-family: 'Inter', sans-serif;
     background: var(--color-grey-4);
-	color: white;
+	color: var(--color-white);
 }
 `
