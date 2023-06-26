@@ -4,13 +4,20 @@ import { LoginPage } from "../pages/Login"
 import { RegisterPage } from "../pages/Register"
 import { PublicRoutes } from "./PublicRoutes"
 import { ProtectedRoutes } from "./ProtectedRoutes"
-// import { TechContext } from "../components/providers/TechContext"
+import { UserProviderTech } from "../providers/TechContext"
 
-export function RoutesMain(){    
+export function RoutesMain(){   
+
     return(
         <Routes>
             <Route element={<ProtectedRoutes />}> 
-            <Route path="/home" element={<HomePage />} />
+            <Route
+                path="/home"
+                element={
+                <UserProviderTech>
+                    <HomePage />
+                </UserProviderTech>}
+            />
             </Route>
             <Route element={<PublicRoutes />}>
                 <Route path="/" element={<LoginPage />}/>  

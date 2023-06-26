@@ -29,7 +29,12 @@ export const FormLogin = styled.form`
         text-align: center;
         margin-bottom: 8px;
     }
-  
+
+    @media (max-width: 411px) {
+        margin-left: 1rem;
+        width: 20rem;
+    }
+
 `
 export const DivLogin = styled.div`
    height: 4.625rem;

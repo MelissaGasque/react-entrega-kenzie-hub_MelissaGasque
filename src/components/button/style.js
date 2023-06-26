@@ -15,6 +15,7 @@ export const StyledButton = styled.button`
         border-radius: 0.2537rem;
         border: var(--color-color-primary) 0.0762rem solid;
         margin-top: 1.1875rem;
+        font-family: 'Inter', sans-serif;
 
         &:hover {
           background-color: var(--color-color-primary-50);
@@ -32,6 +33,7 @@ export const StyledButton = styled.button`
         border-radius: 0.25rem;
         border: var(--color-color-primary-disable) 0.0762rem solid;
         margin-top: 32px;
+        font-family: 'Inter', sans-serif;
 
         &:hover {
           background-color: var(--color-negative);
@@ -48,6 +50,7 @@ export const StyledButton = styled.button`
         color: var(--color-grey-0);
         border-radius: 0.25rem;
         border: var(--color-grey-3) 0.0762rem solid;
+        font-family: 'Inter', sans-serif;
 
         &:hover {
           background-color: var(--color-grey-2);
@@ -60,6 +63,7 @@ export const StyledButton = styled.button`
         background-color:var(--color-grey-2);
         color: var(--color-grey-1);
         border: none;
+        font-family: 'Inter', sans-serif;
       `
     } else if (button === "+") {
       return css`
@@ -68,6 +72,7 @@ export const StyledButton = styled.button`
         border-radius: 0.25rem;
         border: 1px solid var(--color-grey-3);
         background-color:var(--color-grey-3);
+        font-family: 'Inter', sans-serif;
 
         &:hover {
           background-color: var(--color-grey-2);
@@ -83,6 +88,7 @@ export const StyledButton = styled.button`
         font-size: 16px;;
         font-weight: 500;
         color: var(--color-white);
+        font-family: 'Inter', sans-serif;
 
         &:hover {
           background-color: var(--color-negative);
@@ -98,6 +104,7 @@ export const StyledButton = styled.button`
         font-size: 16px;;
         font-weight: 500;
         color: var(--color-white);
+        font-family: 'Inter', sans-serif;
 
         &:hover{
           background-color: var(--color-grey-2);

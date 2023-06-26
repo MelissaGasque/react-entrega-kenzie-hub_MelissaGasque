@@ -5,14 +5,14 @@ import { Select } from "../../components/Select"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { SchemaRegister } from "../../components/schema/schema"
 import { Button } from "../../components/button"
-import React from 'react';
-import 'react-toastify/dist/ReactToastify.css'
+import React from "react";
+import "react-toastify/dist/ReactToastify.css"
 
 import { StyleTitle_1, StyleText_3, StyleTextErro, StyleText_1 } from "../../styles/typography"
 import { HeaderRegister, FormRegister, FormDivRegister } from "./style"
 import { CustomLink } from "../../components/customLink"
 import { useContext } from "react"
-import { UserContext } from "../../components/providers/UserContext"
+import { UserContext } from "../../providers/UserContext"
 
 export function RegisterPage() {
 

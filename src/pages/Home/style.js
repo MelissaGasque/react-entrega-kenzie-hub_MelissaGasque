@@ -3,25 +3,31 @@ import styled from "styled-components"
 export const ContainerHeader = styled.div`
     width: 100%;
     max-width: 48.125rem;
-    margin: 0 auto; //Coloca no meio 
+    margin: 0 auto; 
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media (max-width: 771px) {
+        margin-left: 1rem;
+        width: 95%;
+    }
 
 `
 export const ContainerBody = styled.div`
     width: 100%;
     max-width: 48.125rem;
-    margin: 0 auto; //Coloca no meio 
+    margin: 0 auto; 
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    @media (max-width: 37.5rem) {
+    @media (max-width: 771px) {
         justify-content: center;
         align-items: flex-start;
         flex-direction: column;
         padding: 0px;
+        margin-left: 1rem;
         width: 100%;
 
         h1{
@@ -60,10 +66,10 @@ export const HomeMensagem = styled.div`
         margin-bottom: 16px;
     }
 
-    @media (max-width: 37.5rem) {
-    display: none;
-  }
-
+    @media (max-width: 771px) {
+        margin-left: 1rem;
+        width: 90%;
+    }
 `
 export const HomeTecnologia = styled.div`
   display: flex;
@@ -80,6 +86,7 @@ export const HomeListUl= styled.ul`
   padding: 1.5rem 1.5rem;
   overflow-y: auto;
   overflow-x: hidden;
+
 `
 
 export const HomeListLi = styled.li`

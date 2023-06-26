@@ -5,9 +5,10 @@ import { Button } from "../../components/button"
 import adicionar from "../../assets/+.png"
 import { StyleTitle_1, StyleTitle_3, StyleText_3 } from "../../styles/typography"
 import { ContainerHeader, HeaderHome, HomeUsuario, HomeMensagem, ContainerBody, HomeTecnologia, HomeListUl, HomeListLi} from "./style"
-import { UserContext } from "../../components/providers/UserContext"
+import { UserContext } from "../../providers/UserContext"
 import { ModalCadastro } from "../../components/modals/modalCadastro"
 import { ModalEditDelet } from "../../components/modals/modalEditDelet"
+import { TechContext } from "../../providers/TechContext"
 
 
 export function HomePage() {
@@ -17,8 +18,7 @@ export function HomePage() {
   const [selectedTechTitle, setSelectedTechTitle] = useState("")
   const [selectedTechId, setSelectedTechId] = useState(null)
   
-  const { techList } = useContext(UserContext)
-  //Será adicionado no TechContext  
+  const { techList } = useContext(TechContext)
 
   function openModal() {
     setIsOpen(true)
@@ -53,7 +53,7 @@ export function HomePage() {
       </HomeTecnologia>
       <HomeListUl>
       {/*  techList => Ao dar F5 some os dados da api */}
-        {usery.techs.map((tech) => (
+        {techList.map((tech) => (
           <React.Fragment key={tech.id}>
             <HomeListLi onClick={() => handleItemClick(tech.id, tech.title)}>
               <p>{tech.title}</p>
@@ -63,7 +63,10 @@ export function HomePage() {
         ))}
       </HomeListUl>
       </HomeMensagem>   
-      <ModalCadastro modalIsOpen={modalIsOpen} setIsOpen={setIsOpen} />
+      <ModalCadastro
+        modalIsOpen={modalIsOpen}
+        setIsOpen={setIsOpen}
+      />
       <ModalEditDelet
         modalEditDeletIsOpen={modalEditDeletIsOpen}
         setModalEditDeletIsOpen={setModalEditDeletIsOpen}

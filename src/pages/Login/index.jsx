@@ -5,9 +5,9 @@ import { CustomLink } from "../../components/customLink"
 import { SchemaLogin } from "../../components/schema/schema"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Button } from "../../components/button"
-import 'react-toastify/dist/ReactToastify.css'
+import "react-toastify/dist/ReactToastify.css"
 import { useContext } from "react"
-import { UserContext } from "../../components/providers/UserContext"
+import { UserContext } from "../../providers/UserContext"
 
 import { StyleTitle_1, StyleText_2, StyleTextErro } from "../../styles/typography"
 import {  Container, HeaderLogin, FormLogin,  DivLogin } from "./style"

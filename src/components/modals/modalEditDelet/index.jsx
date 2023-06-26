@@ -2,10 +2,9 @@ import React, {useContext} from "react"
 import { Select } from "../../Select/index"
 import { useForm } from "react-hook-form"
 import { Button } from "../../button"
-// import { TechContext } from "../../providers/TechContext"
+import { TechContext } from "../../../providers/TechContext"
 import { StyleTextErro, StyleText_1, StyleTitle_4 } from "../../../styles/typography"
 import { StyledBackdropEditDelet, StyledFormEditDelet, StyledHeaderEditDelet, StyledModalEditDelet, StyledFakeInput, StyleDivButton } from "./style"
-import {UserContext} from "../../providers/UserContext"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { SchemaModalEditDelet } from "../../schema/schema"
 
@@ -21,12 +20,10 @@ export function ModalEditDelet({modalEditDeletIsOpen, setModalEditDeletIsOpen, s
         setModalEditDeletIsOpen(false)
     }
 
-    const {EditTechnologies, DeleteTechnologies } = useContext(UserContext)
-    //Será adicionado no TechContext  
+    const {EditTechnologies, DeleteTechnologies } = useContext(TechContext)
+
 
     function handleEdit(formData){
-        console.log(formData)
-        console.log(selectedTechId)
         EditTechnologies(formData, selectedTechId)
         reset()
         setModalEditDeletIsOpen(false)

@@ -3,8 +3,7 @@ import { Input } from "../../inputs/index"
 import { Select } from "../../Select/index"
 import { useForm } from "react-hook-form"
 import { Button } from "../../button"
-// import { TechContext } from "../../providers/TechContext"
-import { UserContext } from "../../providers/UserContext"
+import { TechContext } from "../../../providers/TechContext"
 import { StyledBackdrop, StyledModal, StyledHeader, StyledForm } from "./style"
 import { StyleTextErro, StyleText_1 } from "../../../styles/typography"
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -22,8 +21,7 @@ export function ModalCadastro({modalIsOpen, setIsOpen}){
         setIsOpen(false);
     }
 
-    const { CreateTechnologies } = useContext(UserContext)
-    //Será adicionado no TechContext  
+    const { CreateTechnologies } = useContext(TechContext)
 
     function ModalSubmit(formData){
         CreateTechnologies(formData)
