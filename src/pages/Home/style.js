@@ -68,7 +68,7 @@ export const HomeMensagem = styled.div`
 
     @media (max-width: 771px) {
         margin-left: 1rem;
-        width: 90%;
+        width: 95%;
     }
 `
 export const HomeTecnologia = styled.div`

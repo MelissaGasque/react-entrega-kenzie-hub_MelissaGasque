@@ -30,7 +30,7 @@ export const FormLogin = styled.form`
         margin-bottom: 8px;
     }
 
-    @media (max-width: 411px) {
+    @media (max-width: 470px) {
         margin-left: 1rem;
         width: 20rem;
     }

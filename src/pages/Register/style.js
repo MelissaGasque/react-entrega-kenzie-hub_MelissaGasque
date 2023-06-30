@@ -11,9 +11,9 @@ export const HeaderRegister = styled.header`
         width: 7.6288rem;
         height: 1.3256rem;
     }
-    @media (max-width: 411px) {
+    @media (max-width: 440px) {
         margin-left: 1rem;
-        width: 22rem;
+        width: clamp(150px, 93%, 440px );
     }
 
 `
@@ -27,9 +27,9 @@ export const FormRegister = styled.form`
     padding: 2.625rem 1.375rem;
     background-color: var(--color-grey-3);
     margin: 0rem auto;
-    @media (max-width: 411px) {
-        margin-left: 1rem;
-        width: 19rem;
+    @media (max-width: 440px) {
+        margin-left: 3%;
+        width: clamp(150px, 80%, 440px );
     }
 `
 export const FormDivRegister = styled.div`
