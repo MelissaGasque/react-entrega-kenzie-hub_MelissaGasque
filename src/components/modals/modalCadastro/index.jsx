@@ -23,7 +23,7 @@ export function ModalCadastro({modalIsOpen, setIsOpen}){
 
     const { CreateTechnologies } = useContext(TechContext)
 
-    function ModalSubmit(formData){
+    function modalSubmit(formData){
         CreateTechnologies(formData)
         reset()
         setIsOpen(false)
@@ -40,7 +40,7 @@ export function ModalCadastro({modalIsOpen, setIsOpen}){
                     <h2>Cadastrar Tecnologia</h2>
                     <Button button="x" onClick={closeModal}>X</Button>
                 </StyledHeader>
-                <StyledForm onSubmit={handleSubmit(ModalSubmit)}>
+                <StyledForm onSubmit={handleSubmit(modalSubmit)}>
                     <Input 
                         label="Nome"
                         type="text"

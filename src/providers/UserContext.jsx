@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { api } from "../service/api"
-import { toast } from 'react-toastify'
+import { toast } from "react-toastify"
 
 export const UserContext = createContext({})
 
@@ -53,8 +53,8 @@ export function UserProvider({children}){
       
         setUser(responseData.user) 
     
-      localStorage.setItem('@TOKEN', token)
-      localStorage.setItem('@USERID', responseData.user.id)
+      localStorage.setItem("@TOKEN", token)
+      localStorage.setItem("@USERID", responseData.user.id)
 
         navigate("/home")
 

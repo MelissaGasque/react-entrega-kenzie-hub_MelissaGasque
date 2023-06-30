@@ -11,7 +11,7 @@ export const StyleSelect = styled.select`
 
     font-weight: 400;
     font-size: 1rem;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     margin-top: 8px;
 
     &:hover {

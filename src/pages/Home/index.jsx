@@ -52,7 +52,6 @@ export function HomePage() {
         </Button>
       </HomeTecnologia>
       <HomeListUl>
-      {/*  techList => Ao dar F5 some os dados da api */}
         {techList.map((tech) => (
           <React.Fragment key={tech.id}>
             <HomeListLi onClick={() => handleItemClick(tech.id, tech.title)}>

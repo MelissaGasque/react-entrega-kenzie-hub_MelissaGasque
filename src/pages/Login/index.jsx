@@ -13,7 +13,7 @@ import { StyleTitle_1, StyleText_2, StyleTextErro } from "../../styles/typograph
 import {  Container, HeaderLogin, FormLogin,  DivLogin } from "./style"
 
 
-export function LoginPage() {
+export function LoginPage(){
 
     const {register, handleSubmit, reset, formState:{errors}} = useForm({
         resolver:

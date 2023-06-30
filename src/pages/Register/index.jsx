@@ -5,7 +5,7 @@ import { Select } from "../../components/Select"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { SchemaRegister } from "../../components/schema/schema"
 import { Button } from "../../components/button"
-import React from "react";
+import React from "react"
 import "react-toastify/dist/ReactToastify.css"
 
 import { StyleTitle_1, StyleText_3, StyleTextErro, StyleText_1 } from "../../styles/typography"

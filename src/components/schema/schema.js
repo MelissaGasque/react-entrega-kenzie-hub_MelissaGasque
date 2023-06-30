@@ -34,7 +34,8 @@ export const SchemaRegister = z.object({
     .nonempty("O nome é obrigatório"),
 
     contact: z
-    .string(),
+    .string()
+    .nonempty("O contato é obrigatório"),
 
     course_module:z
     .string()

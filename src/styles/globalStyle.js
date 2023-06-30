@@ -16,7 +16,7 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 body{
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     background: var(--color-grey-4);
 	color: var(--color-white);
 }

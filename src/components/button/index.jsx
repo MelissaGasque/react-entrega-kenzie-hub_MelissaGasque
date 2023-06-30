@@ -5,5 +5,5 @@ export function Button({ button, type, onClick, children }) {
       <StyledButton button={button} type={type} onClick={onClick}>
         {children}
       </StyledButton>
-    );
+    )
   }
