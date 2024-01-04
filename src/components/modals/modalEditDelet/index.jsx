@@ -24,6 +24,8 @@ export function ModalEditDelet({modalEditDeletIsOpen, setModalEditDeletIsOpen, s
 
 
     function handleEdit(formData){
+        alert(formData)
+        console.log(formData)
         EditTechnologies(formData, selectedTechId)
         reset()
         setModalEditDeletIsOpen(false)

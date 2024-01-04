@@ -36,10 +36,10 @@ export function UserProvider({children}){
           await api.post("/users", data)
           toast.success("Conta criada com sucesso!")
           setTimeout(() => {
-              navigate("/" )
+              navigate("/")
           }, 1500)
       }catch (error){
-          toast.error("Ops! Algo deu errado")
+          toast.error("Ops! Algo deu errado:" + error.response.data.message)
       }
     }
     
@@ -59,7 +59,7 @@ export function UserProvider({children}){
         navigate("/home")
 
     } catch (error) {
-        toast.error("Não foi possível fazer login")
+        toast.error("Não foi possível fazer login:")
     }
   }
 

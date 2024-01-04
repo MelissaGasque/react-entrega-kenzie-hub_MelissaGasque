@@ -20,7 +20,7 @@ export function RegisterPage() {
         resolver:
         zodResolver(SchemaRegister)
     })
-    const { RegistrationAPI } = useContext(UserContext)  
+    const { RegistrationAPI } = useContext(UserContext) 
 
     function onSubmitRegister(formData){
         RegistrationAPI(formData)
